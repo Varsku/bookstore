@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <title>Server Programming</title>
 </head>
 <body>
 
-<table>
+<table class="table table-striped">
     <tr>
         <th>Author</th>
         <th>Title</th>
         <th>ISBN</th>
         <th>Year</th>
+        <th></th>
     </tr>
 
 
@@ -19,8 +21,10 @@
         <td th:text="${book.title}"></td>
         <td th:text="${book.isbn}"></td>
         <td th:text="${book.year}"></td>
+        <td><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
     </tr>
 
 </table>
+<a th:href="@{/addbook}" class="btn btn-success">Add a book</a>
 </body>
 </html>

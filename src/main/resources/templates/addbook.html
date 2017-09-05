@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <title>Server Programming</title>
+</head>
+<body>
+<div class="input-group input-group-sm">
+    <form th:object="${book}" th:action="@{save}" action="#" method="post">
+        <label for="author">Author</label>
+        <input type="text" class="form-control" id="author" th:field="*{author}" /><br />
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="Title" th:field="*{title}" /><br />
+        <label for="isbn">ISBN</label>
+        <input type="text" class="form-control" id="isbn" th:field="*{isbn}" /> <br />
+        <label for="year">Year</label>
+        <input type="text" class="form-control" id="year" th:field="*{year}" /><br />
+        <input type="submit" class="btn btn-success" value="Save" />
+    </form>
+
+</div>
+</body>
+</html>
