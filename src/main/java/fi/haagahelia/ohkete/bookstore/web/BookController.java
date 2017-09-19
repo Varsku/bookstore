@@ -44,15 +44,4 @@ public class BookController {
         repository.delete(id);
         return "redirect:/booklist";
     }
-
-    @JsonIgnore
-    @RequestMapping(value="/books", method = RequestMethod.GET)
-    public @ResponseBody List<Book> bookListRest() {
-        return (List<Book>) repository.findAll();
-    }
-
-    @RequestMapping(value="/books/{id}", method = RequestMethod.GET)
-    public @ResponseBody Book findOneBookRest(@PathVariable("id") Long id) {
-        return (Book) repository.findOne(id);
-    }
 }
