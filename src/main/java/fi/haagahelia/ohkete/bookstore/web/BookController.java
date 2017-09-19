@@ -1,7 +1,4 @@
 package fi.haagahelia.ohkete.bookstore.web;
-
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import fi.haagahelia.ohkete.bookstore.domain.Book;
 import fi.haagahelia.ohkete.bookstore.domain.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
 
 
 @Controller
@@ -20,6 +15,11 @@ public class BookController {
 
     @Autowired
     private BookRepository repository;
+
+    @RequestMapping(value="/login")
+    public String login() {
+        return "login";
+    }
 
     @RequestMapping(value="/booklist", method= RequestMethod.GET)
     public String allBooks(Model model) {
@@ -44,4 +44,6 @@ public class BookController {
         repository.delete(id);
         return "redirect:/booklist";
     }
+
+
 }
